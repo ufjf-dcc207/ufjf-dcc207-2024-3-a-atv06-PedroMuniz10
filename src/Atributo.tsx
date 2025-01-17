@@ -1,27 +1,14 @@
-import { useState } from "react";
 import "./Atributo.css";
 
 type AtributoProps = {
     icone: string;
+    valor: number;
 };
-
-export default function Atributo({ icone }: AtributoProps){
-    const [valor, setValor] = useState(3);
-
-    function onMaisClick(){
-        if (valor === 5){
-            setValor(0);
-        }
-        else {
-            setValor(valor + 1);
-        }
-    }
-    
+export default function Atributo({ icone, valor }: AtributoProps){
     return (
         <div className="atributo">
-            <span>{icone.repeat(valor)}</span>
-            <span className="inativo">{icone.repeat(5-valor)}</span>
-            <button onClick={onMaisClick}>+</button>
+            <span className="ativo">{icone.repeat(valor)}</span>
+            <span className="inativo">{icone.repeat(5 - valor)}</span>
         </div>
-    );
+    )
 }
